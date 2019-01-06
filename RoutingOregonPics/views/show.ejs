@@ -1,0 +1,18 @@
+<% include ./partials/header %>
+
+<div class="container">
+
+    <h2 class=""><%=pic.title%></h2>
+    <img class="img-fluid" src="<%=pic.imageURL%>">
+    <p><%= pic.description %></p>
+    <p class="date"><%=pic.added.toDateString()%></p>
+    <div>
+        
+        <button class="btn btn-warning" onclick="location.href='/pics/<%=pic._id%>/edit'" type="button">Edit</button>
+        <form id="delete" action="/pics/<%=pic._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+
+<% include ./partials/footer %>
