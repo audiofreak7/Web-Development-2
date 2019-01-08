@@ -1,0 +1,16 @@
+.card img {
+    width: 100%;
+}
+
+.card-body {
+    padding: 9px;
+}
+
+.card {
+    border: 0;
+}
+
+.row {
+    margin: 0;
+}
+
