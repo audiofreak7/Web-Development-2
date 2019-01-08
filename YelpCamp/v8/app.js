@@ -14,7 +14,6 @@ var indexRoutes = require("./routes/index"),
     campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes = require("./routes/comments");
 
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 // Access (and if necessary, Create) the DB, yelp_camp.
@@ -24,7 +23,7 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp_v6", {useNewUrlParser: tru
 app.use(express.static(__dirname + "/public"));
 
 // remove entries from the database, and seed it with data from the 'seed.js' file
-seedDB();
+// seedDB();
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session") ({
@@ -53,7 +52,6 @@ app.use(function(req, res, next) {
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
-
 
 // END
 app.listen(process.env.PORT, process.env.IP, function() {
