@@ -4,6 +4,7 @@ var express    = require("express"),
     mongoose   = require("mongoose"),
     passport   = require("passport"),
     LocalStrategy = require("passport-local"),
+    methodOverride = require("method-override"),
     Campground = require("./models/campground"),
     Comment    = require("./models/comment"),
     User       = require("./models/user"),
@@ -21,6 +22,7 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp_v9", {useNewUrlParser: tru
 // Serve the public directory, so that the stylesheet is easier to access
 // '__dirname' refers to the app working directory
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 
 // remove entries from the database, and seed it with data from the 'seed.js' file
 // seedDB();
